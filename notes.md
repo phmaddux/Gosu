@@ -35,3 +35,9 @@ To commit files (EG save them):
 $ git commit -m "<Commit message here>"
 If you have already added your files and just want to commit a change to files:
 $ git commit -am "<Commit message here>"
+To push commits to github:
+$ git push
+To Pull from github:
+$ git pull
+To see a list of commits:
+$ git log
