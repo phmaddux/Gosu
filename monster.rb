@@ -24,13 +24,5 @@ class Fight
 end
 
 monkey_monster = Monster.new("Monkey Man", 100, 1000)
-monkey_monster.list_attributes
-puts ""
 drunken_elf = Monster.new("Drunken Elf", 3, 10000)
-drunken_elf.list_attributes
-puts ""
 shitty_hero = Monster.new("Shitty Hero", 10000, 1000000)
-shitty_hero.list_attributes
-shitty_hero.name
-puts shitty_hero.health_points
-puts ""
