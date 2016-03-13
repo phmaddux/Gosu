@@ -23,6 +23,14 @@ String Interpolitation "text here #{ code here that becomes text }"
 Different variables
 variable & @variable are not the same. The first one is local to its function the second is an attribute
 
+Loops! Are a way to make code repeat until a condition is met.
+
+Array's are collections of variables, strings, integers, floats, objects, etc
+[monkey_man, 42, "words"]
+
+if else
+These are control flow statements. Eg they let you decide which bit of code is run based on criteria.
+
 ## Git
 Git is the file versioning system programmers use. EG it is how we save shit.
 To make a new git in the terminal navigate to the top folder of your project and type:
