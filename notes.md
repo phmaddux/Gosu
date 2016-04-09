@@ -14,6 +14,7 @@ brew - is your package manager
   - if you need help "brew help"
   - if is broken "brew doctor"
   - "brew list" will show your packages
+sudo - "imperio" makes the computer do things it normally wouldn't. Can be very dangerous. So new sudo gem install anything. Just gem install it
 
 ## Ruby
 In the terminal 'ruby filename.rb' will run a file
