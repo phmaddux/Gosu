@@ -13,7 +13,9 @@ class WhackARuby < Gosu::Window
   end
 
   def draw
-    @image.draw(@x - @width / 2, @y - @height / 2, 1)
+    mid_x = @x - @width / 2
+    mid_y = @y - @height / 2
+    @image.draw(mid_x, mid_y, 1)
   end
 
 end
