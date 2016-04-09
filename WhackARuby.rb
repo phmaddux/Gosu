@@ -25,7 +25,12 @@ class WhackARuby < Gosu::Window
     @y = @y + @velocity_y
     #These ^^ two lines += and = y +  mean the same thing
     @velocity_x *= -1 if @x + @width / 2 > 800 || @x - @width / 2 < 0
-    @velocity_y *= -1 if @y + @height / 2 > 600 || @y - @height / 2 < 0
+
+    hits_bottom = (@y + @height / 2 > 600)
+    hits_top    = (@y - @height / 2 < 0)
+    if hits_bottom || hits_top
+      @velocity_y = @velocity_y * -1 #reverse volocity!
+    end
   end
 
 end

@@ -40,6 +40,10 @@ Array's are collections of variables, strings, integers, floats, objects, etc
 if else
 These are control flow statements. Eg they let you decide which bit of code is run based on criteria.
 
+Logic conditions to be used in if statements
+|| - means OR
+&& - means AND
+
 ## Git
 Git is the file versioning system programmers use. EG it is how we save shit.
 To make a new git in the terminal navigate to the top folder of your project and type:
