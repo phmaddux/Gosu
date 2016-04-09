@@ -6,6 +6,14 @@
 The terminal is where you execute code.
 cd directory_name -> will change directory
 ls -> will list stuff
+rvm -> ruby version manager
+ - your default ruby on Mac OS X is ruby 2.0 but you will need to use multiple rubies over time. eg 2.0, 2.1, 2.2. etc
+ - "rvm list" - will show all your rubies
+brew - is your package manager
+  - normally you will use it like "brew install <something>"
+  - if you need help "brew help"
+  - if is broken "brew doctor"
+  - "brew list" will show your packages
 
 ## Ruby
 In the terminal 'ruby filename.rb' will run a file
