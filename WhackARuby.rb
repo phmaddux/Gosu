@@ -5,14 +5,16 @@ class WhackARuby < Gosu::Window
     super(800, 600)
     self.caption = 'Whack the Ruby!'
     @image = Gosu::Image.new('ruby.png')
-    ruby = RubyGem.new({"x" => 200})
-    # ruby.x = 200
-    @y = 200
-    @width = 50
-    @height = 43
-    @velocity_x = 1
-    @velocity_y = 1
-    @visible = 0
+    @ruby = RubyGem.new(
+      { "x" => 200,
+        "y" => 200,
+        "width" =>50,
+        "height" => 43,
+        "velocity_x" => 1,
+        "velocity_y" => 1,
+        "visible" => 0
+      }
+    )
     @hammer_image = Gosu::Image.new('hammer.png')
     @hit = 0
     @font = Gosu::Font.new(30)
@@ -22,9 +24,9 @@ class WhackARuby < Gosu::Window
   end
 
   def draw
-    mid_x = ruby.x - @width / 2
-    mid_y = @y - @height / 2
-    if @visible > 0
+    mid_x = @ruby.x - @ruby.width / 2
+    mid_y = @ruby.y - @ruby.height / 2
+    if @ruby.visible > 0
       @image.draw(mid_x, mid_y, 1)
     end
     @hammer_image.draw(mouse_x - 40, mouse_y - 10, 1)
@@ -42,19 +44,19 @@ class WhackARuby < Gosu::Window
     unless @playing
       @font.draw('Game Over', 300, 300, 3)
       @font.draw('Press the Space Bar to Play Again', 175, 350, 3)
-      @visible = 20
+      @ruby.visible = 20
     end
   end
 
   def update
     if @playing
-      ruby.x += @velocity_x
-      @y = @y + @velocity_y
+      @ruby.x += @ruby.velocity_x
+      @ruby.y += @ruby.velocity_y
       #These ^^ two lines += and = y +  mean the same thing
-      @velocity_x *= -1 if ruby.x + @width / 2 > 800 || ruby.x - @width / 2 < 0
-      @velocity_y *= -1 if (@y + @height / 2 > 600) || (@y - @height / 2 < 0)
-      @visible -= 1
-      @visible = 30 if @visible < -10 && rand < 0.5
+      @ruby.velocity_x *= -1 if @ruby.x + @ruby.width / 2 > 800 || @ruby.x - @ruby.width / 2 < 0
+      @ruby.velocity_y *= -1 if (@ruby.y + @ruby.height / 2 > 600) || (@ruby.y - @ruby.height / 2 < 0)
+      @ruby.visible -= 1
+      @ruby.visible = 30 if @ruby.visible < -10 && rand < 0.5
       @time_left = (100 - (Gosu.milliseconds - @start_time) / 1000)
       @playing = false if @time_left <= 0
     end
@@ -63,7 +65,7 @@ class WhackARuby < Gosu::Window
   def button_down(id)
     if @playing
       if (id == Gosu::MsLeft)
-        if Gosu.distance(mouse_x, mouse_y, ruby.x, @y) <= 50 && @visible >= 0
+        if Gosu.distance(mouse_x, mouse_y, @ruby.x, @ruby.y) <= 50 && @ruby.visible >= 0
           @hit = 1
           @score += 5
         else
@@ -74,7 +76,7 @@ class WhackARuby < Gosu::Window
     else
       if (id == Gosu::KbSpace)
         @playing = true
-        @visible = -10
+        @ruby.visible = -10
         @start_time = Gosu.milliseconds
         @score = 0
       end
@@ -83,10 +85,15 @@ class WhackARuby < Gosu::Window
 end
 
 class RubyGem
-  attr_accessible :x
-
+  attr_accessor :x, :y, :width, :height, :velocity_x, :velocity_y, :visible
   def initialize(params = {})
     @x = params["x"]
+    @y = params["y"]
+    @width = params["width"]
+    @height = params["height"]
+    @velocity_x = params["velocity_x"]
+    @velocity_y = params["velocity_y"]
+    @visible = params["visible"]
   end
 end
 
