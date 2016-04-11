@@ -28,6 +28,10 @@ variables store "Strings", Integers (30, 50), Float (31.12) and Booleans (true /
 variables come in local form and @instance form which gives them scope
 String Interpolitation "text here #{ code here that becomes text }"
 "=" is "Assignment" left always equals what is on the right ex: x=7
+"==" is "Equality" we are evaluating if the two objects are the same
+x = 7
+x == 7 => true
+x == 5 => false
 
 Different variables
 variable & @variable are not the same. The first one is local to its function the second is an attribute
